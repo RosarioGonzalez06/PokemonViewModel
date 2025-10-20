@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -21,11 +22,14 @@ import com.turingalan.pokemon.data.model.Pokemon
 import com.turingalan.pokemon.destinations
 import com.turingalan.pokemon.ui.detail.PokemonDetailScreen
 import com.turingalan.pokemon.ui.list.PokemonListScreen
+import com.turingalan.pokemon.ui.list.PokemonListViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 
 @Composable
 fun PokemonApp() {
+    val viewModel: PokemonListViewModel = hiltViewModel()
+    val pokemonList = viewModel.pokemonList
     val navController = rememberNavController()
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -54,7 +58,7 @@ fun PokemonApp() {
             composable <destinations.Detail>{
                 val pokemonDestination: destinations.Detail =it.toRoute()
                 val pokemonId= pokemonDestination.id
-                val pokemon=pokemonList.first{pokemon -> Pokemon.id==pokemonId}
+                val pokemon = pokemonList.first { it.id == pokemonId.toLong() }
                 PokemonDetailScreen(
                     modifier = hostModifier,
                     name= pokemon.name,

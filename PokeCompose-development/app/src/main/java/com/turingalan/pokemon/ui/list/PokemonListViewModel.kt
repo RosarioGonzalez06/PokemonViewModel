@@ -8,5 +8,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PokemonListViewModel @Inject constructor(private val savedStateHandle: SavedStateHandle, private val repository: PokemonRepository): ViewModel(){
-
+    val pokemonList = repository.readAll()
 }

@@ -20,7 +20,7 @@ fun PokemonDetailScreen(
     artworkId: Int,
     )
 {
-    Column(modifier = Modifier.fillMaxSize(),
+    Column(modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally) {
        Image(
            painterResource(artworkId),
