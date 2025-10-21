@@ -2,6 +2,7 @@ package com.turingalan.pokemon.data.repository
 
 import com.turingalan.pokemon.R
 import com.turingalan.pokemon.data.model.Pokemon
+import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 class PokemonInMemoryRepository @Inject constructor(): PokemonRepository {
@@ -66,5 +67,8 @@ class PokemonInMemoryRepository @Inject constructor(): PokemonRepository {
         return pokemon
     }
 
-    override suspend fun readAll(): List<Pokemon> = this.pokemonList
+    override suspend fun readAll(): List<Pokemon> {
+        delay(10000L)
+        return this.pokemonList
+    }
 }
