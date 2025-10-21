@@ -36,9 +36,9 @@ fun PokemonListItem(
     pokemonId: Long
 ) {
     Card(
-        modifier = modifier
-            .fillMaxWidth().clickable(enabled = true, 
-                onClick = { onNavigateToDetail(pokemonId) 
+        modifier = modifier.fillMaxWidth().clickable(
+            enabled = true,
+            onClick = { onNavigateToDetail(pokemonId)
                 })
     ) {
         Row {

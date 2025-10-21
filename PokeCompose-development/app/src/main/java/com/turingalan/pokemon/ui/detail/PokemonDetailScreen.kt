@@ -34,8 +34,7 @@ fun PokemonDetailScreen(
 
             )
         Button(
-            onClick = onCancel,
-            modifier=Modifier.weight(1f)
+            onClick = onCancel
         ) {
             Text("return")
         }
